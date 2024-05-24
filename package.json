@@ -1,0 +1,44 @@
+{
+  "name": "ethstorage-sdk-ts",
+  "version": "1.2.8",
+  "description": "eip-4844 blobs upload sdk from ethstorage-sdk",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "publish":"npm publish --access=public",
+    "test":"ts-node src/test.ts"
+  },
+  "dependencies": {
+    "colors-cli": "^1.0.33",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.12.0",
+    "kzg-wasm": "^0.4.0",
+    "rxjs": "^7.8.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/v1xingyue/ethstorage-sdk-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/v1xingyue/ethstorage-sdk-ts/issues"
+  },
+  "homepage": "https://github.com/v1xingyue/ethstorage-sdk",
+  "keywords": [
+    "EIP4844",
+    "eip-4844",
+    "Blobs",
+    "File",
+    "Upload"
+  ],
+  "author": "ethsorage",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.12.12",
+    "mocha": "^10.4.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.5"
+  }
+}
