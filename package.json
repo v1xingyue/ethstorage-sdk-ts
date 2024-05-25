@@ -1,6 +1,6 @@
 {
   "name": "ethstorage-sdk-ts",
-  "version": "1.2.8-x",
+  "version": "1.2.9",
   "description": "eip-4844 blobs upload sdk from ethstorage-sdk",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/v1xingyue/ethstorage-sdk-ts/issues"
   },
-  "homepage": "https://github.com/v1xingyue/ethstorage-sdk",
+  "homepage": "https://github.com/v1xingyue/ethstorage-sdk-ts",
   "keywords": [
     "EIP4844",
     "eip-4844",
