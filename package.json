@@ -6,7 +6,6 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "publish":"npm publish --access=public",
     "test":"ts-node src/test.ts"
   },
   "dependencies": {
