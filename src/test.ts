@@ -38,6 +38,9 @@ const main = async () => {
   // console.log(flatAddress);
 
   await storage.uploadData("/world", "Hello World");
+  await storage.remove("/world");
+
+  await storage.remove("/package.json");
 };
 
 main();
