@@ -1,13 +1,13 @@
 import { BytesLike, TransactionRequest, ethers } from "ethers";
 import { loadKZG } from "kzg-wasm";
 
-function sleep(ms: number) {
+const sleep = async (ms: number) => {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
-}
+};
 
-function parseBigintValue(value: any) {
+const parseBigintValue = (value: any) => {
   if (typeof value == "bigint") {
     return "0x" + value.toString(16);
   }
@@ -17,32 +17,32 @@ function parseBigintValue(value: any) {
     return "0x" + c.toString(16);
   }
   return value;
-}
+};
 
-function computeVersionedHash(
+const computeVersionedHash = (
   commitment: BytesLike,
   blobCommitmentVersion: number
-) {
+) => {
   const computedVersionedHash = new Uint8Array(32);
   computedVersionedHash.set([blobCommitmentVersion], 0);
   const hash = ethers.getBytes(ethers.sha256(commitment));
   computedVersionedHash.set(hash.subarray(1), 1);
   return computedVersionedHash;
-}
+};
 
-function commitmentsToVersionedHashes(commitment: BytesLike) {
+const commitmentsToVersionedHashes = (commitment: BytesLike) => {
   return computeVersionedHash(commitment, 0x01);
-}
+};
 
 // blob gas price
 const MIN_BLOB_GASPRICE = 1n;
 const BLOB_GASPRICE_UPDATE_FRACTION = 3338477n;
 
-function fakeExponential(
+const fakeExponential = (
   factor: bigint,
   numerator: bigint,
   denominator: bigint
-) {
+) => {
   let i = 1n;
   let output = 0n;
   let numerator_accum = factor * denominator;
@@ -54,7 +54,7 @@ function fakeExponential(
   }
 
   return output / denominator;
-}
+};
 
 export class BlobUploader {
   #kzg: any;

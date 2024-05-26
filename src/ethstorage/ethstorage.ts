@@ -35,7 +35,7 @@ const ES_TEST_RPC = "http://65.108.236.27:9540";
 
 const stringToHex = (s: string) => ethers.hexlify(ethers.toUtf8Bytes(s));
 
-function recursiveFiles(path: string, basePath: string) {
+const recursiveFiles = (path: string, basePath: string) => {
   let filePools: any[] = [];
   const fileStat = fs.statSync(path);
   if (fileStat.isFile()) {
@@ -62,7 +62,7 @@ function recursiveFiles(path: string, basePath: string) {
     }
   }
   return filePools;
-}
+};
 
 export class BaseEthStorage {
   #wallet;

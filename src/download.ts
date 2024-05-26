@@ -8,12 +8,12 @@ const contractABI = [
 
 const stringToHex = (s: string) => ethers.hexlify(ethers.toUtf8Bytes(s));
 
-async function readChunk(
+const readChunk = async (
   ethStorageRpc: string,
   ethStorageAddress: HexString,
   hexName: HexString,
   index: number
-) {
+) => {
   let result;
   try {
     const provider = new ethers.JsonRpcProvider(ethStorageRpc);
@@ -25,13 +25,13 @@ async function readChunk(
     result = await contract.readChunk(hexName, index);
   }
   return ethers.getBytes(result[0]);
-}
+};
 
-export async function Download(
+export const Download = async (
   ethStorageRpc: string,
   ethStorageAddress: HexString,
   fileName: string
-) {
+) => {
   const hexName = stringToHex(fileName);
 
   const provider = new ethers.JsonRpcProvider(ethStorageRpc);
@@ -44,4 +44,4 @@ export async function Download(
     buff = [...buff, ...chunk];
   }
   return Buffer.from(buff);
-}
+};

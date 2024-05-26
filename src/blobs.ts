@@ -6,7 +6,7 @@ export const BLOB_SIZE =
   BlobTxBytesPerFieldElement * BlobTxFieldElementsPerBlob;
 export const BLOB_DATA_SIZE = 31 * BlobTxFieldElementsPerBlob;
 
-export function EncodeBlobs(data: Uint8Array) {
+export const EncodeBlobs = (data: Uint8Array) => {
   const len = data.length;
   if (len === 0) {
     throw Error("invalid blob data");
@@ -30,9 +30,9 @@ export function EncodeBlobs(data: Uint8Array) {
     blobs[blobIndex].set(data.subarray(i, max), fieldIndex * 32 + 1);
   }
   return blobs;
-}
+};
 
-export function DecodeBlob(blob: Uint8Array) {
+export const DecodeBlob = (blob: Uint8Array) => {
   if (!blob) {
     throw Error("invalid blob data");
   }
@@ -58,7 +58,7 @@ export function DecodeBlob(blob: Uint8Array) {
     }
   }
   return data.slice(0, i + 1);
-}
+};
 
 export function DecodeBlobs(blobs: Uint8Array) {
   if (!blobs) {

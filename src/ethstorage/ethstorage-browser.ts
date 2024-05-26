@@ -1,13 +1,13 @@
 import { BaseEthStorage } from "./ethstorage";
 
 export class EthStorage extends BaseEthStorage {
-  getFileInfo(pathOrFile: any) {
+  getFileInfo(file: any) {
     return {
       isFile: true,
       isDirectory: false,
-      name: pathOrFile.name,
-      size: pathOrFile.size,
-      path: pathOrFile,
+      name: file.name,
+      size: file.size,
+      path: file,
     };
   }
 
